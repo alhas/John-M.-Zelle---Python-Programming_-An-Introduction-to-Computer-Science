@@ -11,7 +11,7 @@ def main():
 def printIntro():
     print("This program simulates a game of racquetball between two")
     print("Players called 'A' and 'B'. The ability of each player is")
-    print("INdicated by a probability (a number between 0 and 1) that")
+    print("Indicated by a probability (a number between 0 and 1) that")
     print("The player wins the point when serving. Player A always")
     print("Has the first serve.")
 

@@ -1,10 +1,12 @@
 import p8
 
 
-a = p8.draw_card()
+a = p8.deck()
 
 print(a)
 
-a = p8.player()
 
-print(a[])
+
+b = p8.player()
+
+print(b)

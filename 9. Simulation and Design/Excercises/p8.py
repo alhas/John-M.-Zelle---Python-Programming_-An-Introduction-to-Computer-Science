@@ -10,6 +10,7 @@ import random
 BLACK_JACK = 21
 SOFT_HAND = 17
 
+
 def input():
     inp = int(input("How many times do you want to play?: "))
     return inp
@@ -19,24 +20,24 @@ def tournament():
     pass
 
 
-def player(play):
+def player():
 
     hand = 0
     player_card = draw_card()
-    
-    if hand <= SOFT_HAND and type(player_card[1]) == bool:
-            player_card[1] = True
 
-    while hand <= SOFT_HAND:
-        if player_card[1] == True:
-            hand += 1
-        else: hand += 11
+    while hand <= BLACK_JACK:
+        if type(player_card[1]) == bool:
+            if hand+11 < SOFT_HAND:
+                hand += 11
+            else:
+                hand += 1
+        if player_card[0] in ['J', 'Q', 'K']:
+            hand += player_card[1]
+        elif player_card[0]=='N':
+            random.choice(player_card[1])
+            hand += player_card
 
-        if player_card[0] in ['J','Q','K']:
-            hand += player_card[1]  
-
-
-
+    return hand
 
 
 def dealer():
@@ -52,8 +53,6 @@ def draw_card():
              }
 
     a = random.choice(list(cards.items()))
-    if type(a[1]) == tuple:
-        a = random.choice(a[1])
 
     return a
 

@@ -1,12 +1,7 @@
-import p8
-
-
-a = p8.deck()
-
-print(a)
+from p8 import dealer
 
 
 
-b = p8.player()
+a = dealer()
 
-print(b)
+print (a)

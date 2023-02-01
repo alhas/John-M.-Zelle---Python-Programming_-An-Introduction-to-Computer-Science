@@ -25,39 +25,24 @@ def player():
 
     hand = 0
 
-    while hand < BLACK_JACK:
+    while hand <= BLACK_JACK:
         player_card = deck()
         if type(player_card) == bool:
-            if hand+ACE < BLACK_JACK:
+            if hand+ACE < SOFT_HAND:
                 hand += 11
             else:
                 hand += 1
-        if type(player_card) == int:
-            hand += player_card
+        hand += player_card
 
     return hand
 
 
 def dealer():
-
-    hand = 0
-    has_ace = False
-    while hand < BLACK_JACK:
-        dealer_card = deck()
-        if type(dealer_card) == bool:
-            has_ace = True
-            if has_ace and hand >= SOFT_HAND and hand <= BLACK_JACK:
-                hand += 11
-            else:
-                hand += 1
-        if type(dealer_card) == int:
-            hand += dealer_card
-
-    return hand
+    pass
 
 
 def deck():
-    cards = [True, 2, 3]
+    cards = [True, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
     a = random.choice(list(cards))
 

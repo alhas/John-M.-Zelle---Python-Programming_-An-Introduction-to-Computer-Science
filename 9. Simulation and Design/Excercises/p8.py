@@ -17,25 +17,24 @@ def input():
     return inp
 
 
-def tournament():
-    pass
-
-
 def player():
-
     hand = 0
-
     while hand < BLACK_JACK:
         player_card = deck()
         if type(player_card) == bool:
-            if hand+ACE < BLACK_JACK:
+            if hand+ACE <= BLACK_JACK:
                 hand += 11
             else:
                 hand += 1
+        if hand > BLACK_JACK:
+            break
         if type(player_card) == int:
             hand += player_card
+    if hand > BLACK_JACK:
+        busted = 1
+        return busted
+    else: return 0
 
-    return hand
 
 
 def dealer():
@@ -52,9 +51,9 @@ def dealer():
                 hand += 1
         if type(dealer_card) == int:
             hand += dealer_card
-
-    return hand
-
+    if hand > BLACK_JACK:
+        return 0
+    else: return 1
 
 def deck():
     cards = [True, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
@@ -67,6 +66,7 @@ def deck():
 def main():
 
     pass
+
 
 if __name__ == "__main__":
     main()
